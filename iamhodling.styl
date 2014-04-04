@@ -1,0 +1,38 @@
+@import 'nib'
+@import url("http://fonts.googleapis.com/css?family=Open+Sans:300");
+
+global-reset()
+
+body
+  width: 80%
+  max-width: 800px
+  margin: 10px auto
+  font-family: 'Open Sans', sans-serif
+  line-height: 1.6em
+
+.infos
+  margin-bottom: 20px
+
+h1
+  font-size: 2em
+  margin: 20px 0
+
+.range
+  background: #ecf0f1
+  margin-top: 5px
+  position: relative
+  height: 25px
+  border-radius: 4px
+
+  .scorebar
+    absolute: top 0 bottom 0
+    background: #2980b9
+    z-index: 0
+    border-radius: left 4px
+    transition: width 0.5s
+
+  label
+    // z-index doesn't work in this case
+    padding-left: 5px
+    position: absolute
+    color: white

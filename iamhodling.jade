@@ -1,0 +1,12 @@
+body
+  h1 At what average price have you bought your bitcoins?
+
+  .infos.
+    Once you have voted, you can't change your vote. <br>
+    Results updated in real-time ;
+     see the code on <a href="https://github.com/mquandalle/iamhodling" target="_blank">github</a>.
+
+  each votes
+    .range(title=instruction style="cursor:#{cursor}")
+      .scorebar(style="width:#{barWidth}%")
+      label= label
