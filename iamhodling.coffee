@@ -3,11 +3,12 @@
 if Meteor.isServer
   Meteor.methods
     'myVote': ->
-      ip = @connection.clientAddress
+      ip = headers.methodClientIP @
       Votes.findOne(votesIp: ip)?._id
 
     'vote': (id) ->
-      ip = @connection.clientAddress
+      check id, String
+      ip = headers.methodClientIP @
       unless Votes.findOne(votesIp: ip)?
         Votes.update _id: id,
           $inc: score: 1

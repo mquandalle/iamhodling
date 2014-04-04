@@ -6,13 +6,24 @@
   },
   "dependencies": {
     "basePackages": {
-      "jade": {}
+      "jade": {},
+      "headers": {}
     },
     "packages": {
       "jade": {
         "git": "https://github.com/mquandalle/meteor-jade.git",
         "tag": "v0.2.1",
         "commit": "969fc3dd0adbb15304e3e13c3e27260398d89503"
+      },
+      "headers": {
+        "git": "https://github.com/gadicohen/meteor-headers.git",
+        "tag": "v0.0.21",
+        "commit": "569a50eb334cc1ab324d0721411f48f1cc75ec24"
+      },
+      "inject-initial": {
+        "git": "https://github.com/gadicc/meteor-inject-initial.git",
+        "tag": "v0.0.7",
+        "commit": "921a944815e06ece8ce4ded180e9d2e9e31f6000"
       }
     }
   }
