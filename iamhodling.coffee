@@ -36,8 +36,9 @@ if Meteor.isClient
     Session.set 'myVote', res
 
   Deps.autorun ->
-    Session.set 'totalVotes',
-      _.reduce Votes.find().fetch(), ((a, b) -> a + b.score), 0
+    scores = Votes.find().map (v) -> v.score
+    Session.set 'maximum', _.max scores
+    Session.set 'total', _.reduce scores, ((a, b) -> a + b), 0
 
   formatPrice = (index) -> "$#{index*100}"
 
@@ -54,15 +55,22 @@ if Meteor.isClient
 
     barWidth: ->
       if Session.get('myVote')?
-        @score / Session.get('totalVotes') * 100
+        @score / Session.get('maximum') * 100
       else
         100
+
+    mine: ->
+      "mine" if Session.equals 'myVote', @_id
 
     label: ->
       id = parseInt(@_id)
       formatPrice(id) + " - " + formatPrice(id+1)
 
+    total: ->
+      Session.get 'total'
+
   UI.body.events
     'click .range': ->
-      Session.set 'myVote', @_id # Latency compensation
-      Meteor.call 'vote', @_id
+      unless Session.get('myVote')?
+        Session.set 'myVote', @_id # Latency compensation
+        Meteor.call 'vote', @_id

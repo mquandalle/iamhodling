@@ -29,10 +29,17 @@ h1
     background: #2980b9
     z-index: 0
     border-radius: left 4px
-    transition: width 0.5s
+    transition: width 0.5s, background 0.5s
 
   label
     // z-index doesn't work in this case
     padding-left: 5px
     position: absolute
     color: white
+
+  &.mine .scorebar
+    background: #8e44ad
+
+footer
+  margin-top: 20px
+  text-align: center

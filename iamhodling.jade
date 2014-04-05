@@ -7,6 +7,8 @@ body
      see the code on <a href="https://github.com/mquandalle/iamhodling" target="_blank">github</a>.
 
   each votes
-    .range(title=instruction style="cursor:#{cursor}")
+    .range(title=instruction style="cursor:#{cursor}" class="#{mine}")
       .scorebar(style="width:#{barWidth}%")
       label= label
+
+  footer #{total} votes
